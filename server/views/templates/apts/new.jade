@@ -1,0 +1,36 @@
+extends ../../layouts/master
+block content
+  .btn-toolbar(role='toolbar')
+    .btn-group(role='group')
+      a.btn.btn-default(href='/apts'): i.fa.fa-building
+
+  .row
+    .col-sm-2
+    .col-sm-8
+      h3 Add New Apartment
+  .row
+    .col-sm-2
+    .col-sm-8
+      form.form-horizontal(method='post', action='/apts')
+        .form-group
+          label.col-sm-2.control-label(for='name') Unit Name
+          .col-sm-10
+            input#name.form-control(type='text', name='name', placeholder='Unit Name', autofocus=true, required)
+        .form-group
+          label.col-sm-2.control-label(for='sqft') Square Footage
+          .col-sm-10
+            input#sqft.form-control(type='Number', name='sqft', placeholder='Sqft.', required)
+        .form-group
+          label.col-sm-2.control-label(for='bedrooms') No. of Bedrooms
+          .col-sm-10
+            input#bedrooms.form-control(type='Number', name='bedrooms', placeholder='Bedrooms', required)
+        .form-group
+          label.col-sm-2.control-label(for='rent') Rent
+          .col-sm-10
+            input#rent.form-control(type='Number', name='rent', placeholder='Rent', required)
+        .form-group
+          label.col-sm-2.control-label(for='photo') Photo URL
+          .col-sm-10
+            input#photo.form-control(type='url', name='photo', placeholder='http://', required)
+        .form-group
+          button.btn.btn-default(type='submit') Submit

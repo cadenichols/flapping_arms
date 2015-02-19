@@ -1,3 +1,16 @@
-nav
-  ul
-    li: a(href='/') Home
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed(data-toggle="collapse", data-target="#navbar")
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='/') Flapping Arms Apt.Mgmt
+    #navbar.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li(class=active(path, '/')): a(href='/'): i.fa.fa-home &nbsp; Home
+        li(class=active(path, '/apts')): a(href='/apts'): i.fa.fa-building &nbsp; Apartments
+        li(class=active(path, '/renters')): a(href='/renters'): i.fa.fa-users &nbsp; Renters
+        //- li(class=active(path, '/animals')): a(href='/animals'): i.fa.fa-paw &nbsp; Animals
+        //- li(class=active(path, '/clients')): a(href='/clients'): i.fa.fa-users &nbsp; Clients

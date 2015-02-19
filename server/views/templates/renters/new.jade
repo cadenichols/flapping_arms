@@ -1,0 +1,36 @@
+extends ../../layouts/master
+block content
+  .btn-toolbar(role='toolbar')
+    .btn-group(role='group')
+      a.btn.btn-default(href='/renters'): i.fa.fa-users
+
+  .row
+    .col-sm-2
+    .col-sm-8
+      h3 Add New Renter
+      form.form-horizontal(method='post', action='/renters')
+        .form-group
+          label.col-sm-1.control-label(for='name') Name
+          .col-sm-11
+            input#name.form-control(type='text', name='name', placeholder='name', autofocus=true, required)
+        .form-group
+          label.col-sm-1.control-label(for='age') Age
+          .col-sm-11
+            input#age.form-control(type='number', name='age', placeholder='Age', required)
+        .form-group
+          label.col-sm-1.control-label(for='gender') Gender
+          .col-sm-11
+            .radio
+              label
+                input(type='radio', name='gender', value='male')
+                span Male
+            .radio
+              label
+                input(type='radio', name='gender', value='female')
+                span Female
+        .form-group
+          label.col-sm-1.control-label(for='photo') Photo URL
+          .col-sm-11
+            input#photo.form-control(type='text', name='photo', placeholder='http://', required)
+        .form-group
+          button.btn.btn-default(type='submit') Add Renter

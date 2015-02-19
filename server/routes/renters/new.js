@@ -4,6 +4,6 @@ var active = require('../../views/helpers/active');
 
 module.exports = {
   handler: function(request, reply) {
-    reply.view('templates/general/home', {path:'/', active:active});
+    reply.view('templates/renters/new', {path:'/renters', active:active});
   }
 };

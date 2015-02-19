@@ -1,0 +1,29 @@
+extends ../../layouts/master
+block content
+
+  .btn-toolbar(role='toolbar')
+    .btn-group(role='group')
+      a.btn.btn-default(href='/apts'): i.fa.fa-users
+    .btn-group(role='group')
+      a.btn.btn-default(href='/apts/#{apt._id}/edit'): i.fa.fa-pencil-square-o
+    .btn-group(role='group')
+      form(method='post', action='/apts/#{apt._id}/delete')
+        button.btn.btn-danger(type='submit'): i.fa.fa-times
+
+  h3 Detail View
+
+  .page-header
+    h5: a(href='/apts/#{apt._id}')= apt.name
+    .photo(style='background-image:url("'+ apt.photo +'")')
+  
+  table.table
+    thead
+      tr
+        th Square Ft.
+        th No. of Bedrooms
+        th Rent
+    tbody
+      tr
+        td= apt.sqft
+        td= apt.bedrooms
+        td= apt.rent

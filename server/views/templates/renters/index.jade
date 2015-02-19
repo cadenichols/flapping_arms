@@ -1,0 +1,23 @@
+extends ../../layouts/master
+block content
+  .btn-toolbar(role='toolbar')
+    .btn-group(role='group')
+      a.btn.btn-default(href='/renters/new'): i.fa.fa-plus
+
+  h3 Renters
+
+  #renters
+    each renter in renters
+      .renter
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title: a(href='/renters/#{renter._id}')= renter.name
+          .panel-body
+            dl
+              dt Name
+              dd= renter.name
+              dt Age
+              dd= renter.age 
+              dt Gender
+              dd= renter.gender
+            .photo(style='background-image:url("'+ renter.photo + '")')

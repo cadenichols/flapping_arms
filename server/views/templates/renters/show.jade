@@ -1,0 +1,27 @@
+extends ../../layouts/master
+block content
+
+  .btn-toolbar(role='toolbar')
+    .btn-group(role='group')
+      a.btn.btn-default(href='/renters'): i.fa.fa-users
+    .btn-group(role='group')
+      a.btn.btn-default(href='/renters/#{renter._id}/edit'): i.fa.fa-pencil-square-o
+    .btn-group(role='group')
+      form(method='post', action='/renters/#{renter._id}/delete')
+        button.btn.btn-danger(type='submit'): i.fa.fa-times
+
+  h3 Detail View
+
+  .page-header
+    h5: a(href='/renters/#{renter._id}')= renter.name
+    .photo(style='background-image:url("'+ renter.photo +'")')
+  
+  table.table
+    thead
+      tr
+        th Age
+        th Gender
+    tbody
+      tr
+        td= renter.age
+        td= renter.gender

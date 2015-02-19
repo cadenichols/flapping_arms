@@ -1,0 +1,44 @@
+{
+  "name": "flapping_arms",
+  "description": "Flapping Arms Apartment Management",
+  "homepage": "https://github.com/cadenichols/flapping_arms",
+  "keywords": [
+    "gulp",
+    "jshint",
+    "jscs",
+    "server",
+    "hapi",
+    "node",
+    "mongo",
+    "mongoose"
+  ],
+  "author": "Cade Nichols <cade@cadenichols.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cadenichols/flapping_arms.git"
+  },
+  "version": "1.0.0",
+  "scripts": {
+    "start": "MONGO_URL=mongodb://localhost/flapping_arms PORT=3333 nodemon server/index.js",
+    "clean": "rm -rf node_modules && rm -rf public && npm install && bower install && gulp build"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "good": "^5.1.1",
+    "good-console": "^4.1.0",
+    "hapi": "^8.2.0",
+    "jade": "^1.9.2",
+    "joi": "^5.1.0",
+    "lodash": "^3.2.0",
+    "mongoose": "^3.8.23"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-copy": "0.0.2",
+    "gulp-jade": "^0.11.0",
+    "gulp-jscs": "^1.4.0",
+    "gulp-jshint": "^1.9.2",
+    "gulp-less": "^3.0.0",
+    "jshint-stylish": "^1.0.0"
+  }
+}

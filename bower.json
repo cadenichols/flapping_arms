@@ -1,0 +1,13 @@
+{
+  "name": "flapping_arms",
+  "version": "1.0.0",
+  "homepage": "https://github.com/cadenichols/flapping_arms",
+  "authors": [
+    "Cade Nichols <cade@cadenichols.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "lodash": "~3.2.0"
+  }
+}

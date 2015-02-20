@@ -1,9 +1,8 @@
 extends ../../layouts/master
 block content
-
   .btn-toolbar(role='toolbar')
     .btn-group(role='group')
-      a.btn.btn-default(href='/apts'): i.fa.fa-users
+      a.btn.btn-default(href='/apts'): i.fa.fa-building
     .btn-group(role='group')
       a.btn.btn-default(href='/apts/#{apt._id}/edit'): i.fa.fa-pencil-square-o
     .btn-group(role='group')
@@ -13,7 +12,7 @@ block content
   h3 Detail View
 
   .page-header
-    h5: a(href='/apts/#{apt._id}')= apt.name
+    h4= apt.name
     .photo(style='background-image:url("'+ apt.photo +'")')
   
   table.table
@@ -21,9 +20,21 @@ block content
       tr
         th Square Ft.
         th No. of Bedrooms
+        th No. of Vacancies
         th Rent
     tbody
       tr
         td= apt.sqft
         td= apt.bedrooms
+        td=vacancies(apt)
         td= apt.rent
+  if(vacancies(apt))
+    h3 Fill Vacancy
+    form.form-inline(method='post', action='/apts/#{apt._id}/occupy')
+      .form-group
+        select#renterId.form-control.input-sm(name='renterId')
+          each renter in renters
+            if(isHomeless(renter))
+              option(value=renter._id)= renter.name
+      .form-group
+        button.btn.btn-primary.btn-sm(type='submit') Occupy

@@ -20,4 +20,4 @@ block content
               dd= renter.age 
               dt Gender
               dd= renter.gender
-            .photo(style='background-image:url("'+ renter.photo + '")')
+            a(href='/renters/#{renter._id}'): .photo(style='background-image:url("'+ renter.photo + '")')

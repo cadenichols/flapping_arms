@@ -6,6 +6,10 @@ block content
       a.btn.btn-default(href='/renters'): i.fa.fa-users
     .btn-group(role='group')
       a.btn.btn-default(href='/renters/#{renter._id}/edit'): i.fa.fa-pencil-square-o
+    unless isHomeless(renter)
+      .btn-group(role='group')
+        form(method='post', action='/renters/#{renter._id}/evict')
+          button.btn.btn-danger(type='submit'): i.fa.fa-truck
     .btn-group(role='group')
       form(method='post', action='/renters/#{renter._id}/delete')
         button.btn.btn-danger(type='submit'): i.fa.fa-times
@@ -13,7 +17,7 @@ block content
   h3 Detail View
 
   .page-header
-    h5: a(href='/renters/#{renter._id}')= renter.name
+    h4= renter.name
     .photo(style='background-image:url("'+ renter.photo +'")')
   
   table.table
@@ -21,7 +25,12 @@ block content
       tr
         th Age
         th Gender
+        th Apartment
     tbody
       tr
         td= renter.age
         td= renter.gender
+        if !isHomeless(renter)
+          td= aptName
+        else
+          td Not a resident.

@@ -8,18 +8,21 @@ block content
 
   #apts
     each apt in apts
-      .apt
-        .panel.panel-default
-          .panel-heading
-            h3.panel-title: a(href='/apts/#{apt._id}')= apt.name
-          .panel-body
-            dl
-              dt Name
-              dd= apt.name
-              dt No. of Bedrooms
-              dd= apt.bedrooms
-              dt Sq. Ft.
-              dd= apt.sqft
-              dt Rent
-              dd= apt.rent
-            .photo(style='background-image:url("'+ apt.photo +'")')
+      if(vacancies(apt))
+        .apt
+          .panel.panel-default
+            .panel-heading
+              h3.panel-title: a(href='/apts/#{apt._id}')= apt.name
+            .panel-body
+              dl
+                dt Name
+                dd= apt.name
+                dt No. of Bedrooms
+                dd= apt.bedrooms
+                dt No. of Vacancies
+                dd=vacancies(apt)
+                dt Sq. Ft.
+                dd= apt.sqft
+                dt Rent
+                dd= apt.rent
+              a(href='/apts/#{apt._id}'): .photo(style='background-image:url("'+ apt.photo +'")')
